@@ -1,0 +1,69 @@
+@use '../../assets/styles/variables' as v;
+@use '../../assets/styles/mixins' as m;
+
+.hero {
+  min-height: 60vh;
+  background: {
+    image: url('../../assets/images/hero-banner.jpg');
+    repeat: no-repeat;
+    position: center;
+    size: cover;
+    attachment: fixed;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: v.$main-white;
+
+  &__content {
+    padding: 0 1rem;
+  }
+
+  &__offer {
+    text-transform: capitalize;
+    margin-block-end: 0.5rem;
+    
+    @include m.atLgScreen {
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    @include m.atLgScreen {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__offer-btn {
+    background: v.$primary-color;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.1rem;
+  }
+
+  &__star {
+    font-size: 1rem;
+    margin-block-end: -1px;
+    
+    &:nth-child(1) {
+      margin-inline-end: 0.5rem;
+      animation: star-spin 3s linear infinite;
+    }
+    
+    &:nth-child(3) {
+      margin-inline-start: 0.5rem;
+      animation: star-spin 3s linear infinite;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-block: 1rem;
+  }
+}
+
+@keyframes star-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

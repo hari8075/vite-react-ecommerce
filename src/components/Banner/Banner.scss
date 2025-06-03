@@ -1,0 +1,8 @@
+@use '../../assets/styles/mixins' as *;
+.product-banner {
+  min-height: 60vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: contain;
+}

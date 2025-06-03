@@ -1,0 +1,100 @@
+@use '../../assets/styles/variables' as v;
+@use '../../assets/styles/mixins' as m;
+
+.site-header {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid v.$border-color;
+  position: sticky;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 111;
+  background: v.$main-white;
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    width: 50%;
+  }
+
+  &__links {
+    display: none;
+
+    @include m.atLgScreen {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-inline-end: 2rem;
+    font: {
+      size: 0.8rem;
+      weight: 600;
+    }
+    color: v.$main-black;
+    text-transform: uppercase;
+
+    @include m.atXLScreen {
+      font-size: 1rem;
+    }
+  }
+
+  &__icons {
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-item {
+      font-size: 1.5rem;
+
+      &:nth-child(2) {
+        margin-inline: 1rem;
+        position: relative;
+      }
+
+      &:nth-child(3) {
+        font-size: 1.3rem;
+        cursor: pointer;
+        
+        @include m.atLgScreen {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__cart-count {
+    position: absolute;
+    inset: {
+      block-start: -12px;
+      inline-start: 14px;
+    }
+    font-size: 0.7rem;
+    background: v.$primary-color;
+    inline-size: 20px;
+    block-size: 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: v.$main-white;
+  }
+
+  &__toggle {
+    @include m.atLgScreen {
+      display: none;
+    }
+  }
+}
